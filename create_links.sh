@@ -4,8 +4,25 @@
 # pointing to files/directories in the current directory
 # with special handling for dotfiles (files starting with '.')
 
-# Name of this script - will be excluded from linking
-SCRIPT_NAME="create_links.sh"
+IGNORED_FILES=(
+    "create_links.sh"    # This script itself
+    ".git"               # Example: git directory
+    ".gitignore"         # Example: git ignore file
+    "README.md"          # Example: readme file
+)
+
+should_ignore() {
+    local item_to_check="$1"
+    
+    for ignored_item in "${IGNORED_FILES[@]}"; do
+        if [ "$item_to_check" = "$ignored_item" ]; then
+            return 0  # True, should ignore
+        fi
+    done
+    
+    return 1  # False, should not ignore
+}
+
 
 # Get the parent directory path
 PARENT_DIR=".."
@@ -30,13 +47,14 @@ for item in * .[!.]* ..?*; do
     # Skip if the pattern doesn't match anything
     [ -e "$item" ] || continue
     
-    # Skip this script itself
-    if [ "$item" = "$SCRIPT_NAME" ]; then
-        echo "Skipping this script: $item"
+    
+    if should_ignore "$item"; then
+        echo "Skipping ignored file: $item"
         items_skipped=$((items_skipped + 1))
         continue
     fi
-    
+
+
     # Get absolute path of the current item
     abs_path="$(pwd)/$item"
     

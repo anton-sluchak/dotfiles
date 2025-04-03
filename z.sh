@@ -95,11 +95,9 @@ _z() {
         ' 2>/dev/null >| "$tempfile"
         # do our best to avoid clobbering the datafile in a race condition.
         if [ $? -ne 0 -a -f "$datafile" ]; then
-            echo "removing $tempfile"
             \env rm -f "$tempfile"
         else
             [ "$_Z_OWNER" ] && chown $_Z_OWNER:"$(id -ng $_Z_OWNER)" "$tempfile"
-            echo "moving $tempfile to $datafile"
             \env mv -f "$tempfile" "$datafile" || \env rm -f "$tempfile"
         fi
 

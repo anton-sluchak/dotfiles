@@ -9,7 +9,7 @@ export ZSH=/Users/anton/.oh-my-zsh
 # re5et
 # mira
 # dst
-ZSH_THEME="muse"
+ZSH_THEME="mira"
 
 
 # Uncomment the following line to display red dots whilst waiting for completion.
@@ -24,7 +24,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=()
+# plugins=()
 
 # User configuration
 
@@ -33,14 +33,14 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 
-. ~/z.sh
+# . ~/z.sh
 # export _Z_DATA="~/.autocomplete/.z"
 
 export LANG=en_US

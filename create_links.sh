@@ -87,3 +87,4 @@ echo "  Links created: $links_created"
 echo "  Items skipped: $items_skipped"
 echo ""
 echo "Note: Links were created in parent directory ($PARENT_DIR) pointing to files in current directory."
+

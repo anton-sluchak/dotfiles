@@ -29,8 +29,6 @@ plugins=()
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
 
 source $ZSH/oh-my-zsh.sh
 
@@ -42,11 +40,8 @@ source $ZSH/oh-my-zsh.sh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-# 
-. /usr/local/etc/profile.d/z.sh
+. ~/z.sh
+# export _Z_DATA="~/.autocomplete/.z"
 
 export LANG=en_US
 export PATH=$PATH:~/bin

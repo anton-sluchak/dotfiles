@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/anton/.oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
+
 
 
 # Set name of the theme to load.
@@ -9,7 +10,8 @@ export ZSH=/Users/anton/.oh-my-zsh
 # re5et
 # mira
 # dst
-ZSH_THEME="mira"
+# robbyrussell
+ZSH_THEME="muse"
 
 
 # Uncomment the following line to display red dots whilst waiting for completion.
@@ -24,27 +26,21 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# plugins=()
+plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin"
 
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-export LANG=en_US.UTF-8
+# export LANG=en_US.UTF-8
 
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-
-# . ~/z.sh
-# export _Z_DATA="~/.autocomplete/.z"
-
-export LANG=en_US
-export PATH=$PATH:~/bin
 export WORKON_HOME=~/Envs
 
 

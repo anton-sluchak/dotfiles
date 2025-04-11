@@ -98,3 +98,10 @@ function cd() {
 }
 
 source <(kubectl completion zsh)
+
+
+# Personal environmental variables
+if [[ -a ~/.zprofile ]]
+then
+  source ~/.zprofile
+fi

@@ -97,6 +97,8 @@ function cd() {
   fi
 }
 
+HISTFILESIZE=20000
+
 source <(kubectl completion zsh)
 
 

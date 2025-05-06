@@ -66,6 +66,7 @@ alias penv='source .venv/bin/activate'
 alias pyreset='rm -rf .venv && python3.11 -m venv .venv && penv'
 
 alias k='kubectl'
+alias tf='terraform'
 
 
 export NVM_DIR="$HOME/.nvm"
@@ -107,3 +108,22 @@ if [[ -a ~/.zprofile ]]
 then
   source ~/.zprofile
 fi
+
+
+# Function to commit all changes with a message and push
+# Usage: yolo "Your commit message here"
+yolo() {
+  if [ -z "$1" ]; then
+    echo "Error: Please provide a commit message"
+    echo "Usage: yolo \"Your commit message here\""
+    return 1
+  fi
+  
+  git commit -am "$1" && git push
+  
+  if [ $? -eq 0 ]; then
+    echo "✓ Changes committed and pushed successfully"
+  else
+    echo "× Something went wrong with the commit or push"
+  fi
+}

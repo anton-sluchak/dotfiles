@@ -91,9 +91,9 @@ get_quote() {
     
     # Count the number of lines in the file
     local line_count=$(wc -l < "$quotes_file")
-    
+
     # Pick a random line number
-    local random_line=$((RANDOM % line_count + 1))
+    RANDOM_LINE=$((RANDOM % line_count + 1))
     
     # Get the random quote using sed
     local quote_line=$(sed -n "${random_line}p" "$quotes_file")

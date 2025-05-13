@@ -131,7 +131,7 @@ yolo() {
   else
     COMMIT_MESSAGE=$1
   fi
-
+  echo $COMMIT_MESSAGE
   git add .
   git commit -am "$COMMIT_MESSAGE"
   git push

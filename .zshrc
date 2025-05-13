@@ -95,7 +95,6 @@ yolo() {
     # hack for the random to work
     quote > /dev/null
     COMMIT_MESSAGE=$(quote)
-    echo $COMMIT_MESSAGE
   else
     COMMIT_MESSAGE=$1
   fi

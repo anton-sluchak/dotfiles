@@ -79,17 +79,66 @@ then
 fi
 
 
+
+get_quote() {
+    local quotes_file="quotes.csv"
+    
+    # Check if file exists
+    if [ ! -f "$quotes_file" ]; then
+        echo "Error: File '$quotes_file' not found" >&2
+        return 1
+    fi
+    
+    # Count the number of lines in the file
+    local line_count=$(wc -l < "$quotes_file")
+    
+    # Pick a random line number
+    local random_line=$((RANDOM % line_count + 1))
+    
+    # Get the random quote using sed
+    local quote_line=$(sed -n "${random_line}p" "$quotes_file")
+    
+    # Extract the author and quote using awk
+    # This handles the CSV format and properly accounts for commas inside quoted fields
+    local author=$(echo "$quote_line" | awk -F'",' '{print $1}' | sed 's/^"//')
+    local quote=$(echo "$quote_line" | awk -F'",' '{print $2}' | sed 's/^"//' | sed 's/"$//')
+    
+    # Handle empty author field
+    if [ -z "$author" ]; then
+        author="Unknown"
+    fi
+    
+    # Return the formatted quote
+    printf "\"$quote\", - $author"
+}
+
+
+
+
 # Function to commit all changes with a message and push
 # Usage: yolo "Your commit message here"
 yolo() {
+  
   if [ -z "$1" ]; then
     echo "Error: Please provide a commit message"
     echo "Usage: yolo \"Your commit message here\""
     return 1
   fi
   
+  # Check if the argument is -q or a string
+  if [ "$1" = "-q" ]; then
+    COMMIT_MESSAGE=$(get_quote)
+  else
+    COMMIT_MESSAGE=$1
+  fi
+
+  echo $COMMIT_MESSAGE
+
+
+
+
   git add .
-  git commit -am "$1"
+  git commit -am "$COMMIT_MESSAGE"
   git push
   
   if [ $? -eq 0 ]; then
@@ -98,6 +147,9 @@ yolo() {
     echo "× Something went wrong with the commit or push"
   fi
 }
+
+
+
 
 
 

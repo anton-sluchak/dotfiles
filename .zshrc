@@ -96,7 +96,7 @@ get_quote() {
     RANDOM_LINE=$((RANDOM % line_count + 1))
     
     # Get the random quote using sed
-    local quote_line=$(sed -n "${random_line}p" "$quotes_file")
+    local quote_line=$(sed -n "${RANDOM_LINE}p" "$quotes_file")
     
     # Extract the author and quote using awk
     # This handles the CSV format and properly accounts for commas inside quoted fields

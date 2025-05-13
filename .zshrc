@@ -100,7 +100,9 @@ yolo() {
     COMMIT_MESSAGE=$1
   fi
 
-  git add . && git commit -am "$COMMIT_MESSAGE" && git push > /dev/null
+  git add .
+  git commit -am "$COMMIT_MESSAGE"
+  git push
   
   if [ $? -eq 0 ]; then
     echo "✓ Changes committed and pushed successfully"

@@ -85,19 +85,18 @@ source ~/dotfiles/quote.sh
 yolo() {
   
   if [ -z "$1" ]; then
-    echo "Error: Please provide a commit message"
-    echo "Usage: yolo \"Your commit message here\""
-    return 1
-  fi
-  
-  # Check if the argument is -q or a string
-  if [ "$1" = "-q" ]; then
-    # hack for the random to work
     quote > /dev/null
     COMMIT_MESSAGE=$(quote)
-  else
-    COMMIT_MESSAGE=$1
   fi
+  
+  # # Check if the argument is -q or a string
+  # if [ "$1" = "-q" ]; then
+  #   # hack for the random to work
+  #   quote > /dev/null
+  #   COMMIT_MESSAGE=$(quote)
+  # else
+  #   COMMIT_MESSAGE=$1
+  # fi
 
   git add .
   git commit -am "$COMMIT_MESSAGE"

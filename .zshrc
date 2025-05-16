@@ -87,6 +87,8 @@ yolo() {
   if [ -z "$1" ]; then
     quote > /dev/null
     COMMIT_MESSAGE=$(quote)
+  else
+    COMMIT_MESSAGE=$1
   fi
   
   # # Check if the argument is -q or a string

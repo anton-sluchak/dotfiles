@@ -29,6 +29,8 @@ plugins=(git)
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin"
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
 
 source $ZSH/oh-my-zsh.sh
 

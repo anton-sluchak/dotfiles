@@ -5,10 +5,12 @@
 # with special handling for dotfiles (files starting with '.')
 
 IGNORED_FILES=(
-    "create_links.sh"    # This script itself
-    ".git"               # Example: git directory
-    ".gitignore"         # Example: git ignore file
-    "README.md"          # Example: readme file
+    "create_links.sh"
+    ".git"
+    ".gitignore"
+    "README.md"
+    "quotes.csv"
+    "quote.sh"
 )
 
 should_ignore() {
@@ -80,6 +82,12 @@ for item in * .[!.]* ..?*; do
         items_skipped=$((items_skipped + 1))
     fi
 done
+
+
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+echo "source ~/dotfiles/.zshrc" >> ~/.zshrc
 
 echo ""
 echo "Summary:"

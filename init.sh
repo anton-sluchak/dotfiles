@@ -4,8 +4,12 @@
 # pointing to files/directories in the current directory
 # with special handling for dotfiles (files starting with '.')
 
+# install plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+
 IGNORED_FILES=(
-    "create_links.sh"
+    "init.sh"
     ".git"
     ".gitignore"
     "README.md"

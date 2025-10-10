@@ -24,7 +24,15 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kubectl zsh-autosuggestions)
+plugins=(
+  git
+  kubectl
+  zsh-autosuggestions
+)
+
+# Settings of zsh-autosuggestions, can be found in a doc https://github.com/zsh-users/zsh-autosuggestions
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
 
 # User configuration

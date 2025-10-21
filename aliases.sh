@@ -2,6 +2,7 @@ alias l="ls -lah"
 
 alias s="subl ."
 alias c="code ."
+alias i="idea ."
 
 alias gs="git status"
 alias gc="git checkout"

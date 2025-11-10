@@ -32,7 +32,7 @@ plugins=(
 )
 
 # Settings of zsh-autosuggestions, can be found in a doc https://github.com/zsh-users/zsh-autosuggestions
-export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export ZSH_AUTOSUGGEST_STRATEGY=(completion)
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
 

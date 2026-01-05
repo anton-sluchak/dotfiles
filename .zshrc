@@ -10,6 +10,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # dst
 # robbyrussell
 ZSH_THEME="muse"
+# ZSH_THEME="catppuccin"
 
 
 # Uncomment the following line to display red dots whilst waiting for completion.
@@ -120,5 +121,7 @@ yolo() {
   fi
 
 }
+
 source ~/dotfiles/aliases.sh
+
 source <(fzf --zsh)
